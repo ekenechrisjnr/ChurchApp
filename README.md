@@ -41,12 +41,12 @@ it is open to contributions and pull requests.
 This project uses MySQL to store and retrieve church data via API as seen in the api folders.
 
 CREATE Tables/API's for - 
-i. About The Church - id, title, content (future)
-i. Sermon Outline - id, preacher_name, sermon_title, content.
-iii. Announcements - id, announcements (future)
-iv. New Comers Form - id, name, surname, date, denomination, surrendered, service (future).
-v. Audio Streaming - topic, pastor, service, uri.
-vi. Video Streaming - topic, service, pastor, uri.
-vii. Archive Page - id, img, pastor, title, uri.
+1. About The Church - id, title, content (future)
+2. Sermon Outline - id, preacher_name, sermon_title, content.
+3. Announcements - id, announcements (future)
+4. New Comers Form - id, name, surname, date, denomination, surrendered, service (future).
+5. Audio Streaming - topic, pastor, service, uri.
+5. Video Streaming - topic, service, pastor, uri.
+6. Archive Page - id, img, pastor, title, uri.
 
 ### PULL REQUESTS AND COLLABORATIONS WILL BE HIGHLY APPRECIATED FOR THIS PROJECT ###
