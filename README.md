@@ -1,6 +1,5 @@
 # DLCF FUDMA
-
-/screenshots/Screenshot_20220820_175106.png
+![Imgur Image](http://i.imgur.com/zTONrOD.png)
 
 Radio App For DLCF FUDMA RADIO APP..
 
