@@ -1,5 +1,5 @@
 # DLCF FUDMA
-![Imgur Image](http://i.imgur.com/zTONrOD.png)
+![Imgur Image](https://github.com/Chris-JnrN/ChurchApp/blob/main/screenshots/Screenshot_20220820_175106.png)
 
 Radio App For DLCF FUDMA RADIO APP..
 
