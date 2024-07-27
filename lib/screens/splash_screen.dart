@@ -7,11 +7,12 @@ class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 8), () {
       Navigator.pushNamedAndRemoveUntil(
           context, MainScreen.routeName, (route) => false);
     });
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -32,14 +33,14 @@ class SplashScreen extends StatelessWidget {
                 ),
                 Text(
                   'DLCF FUDMA',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontStyle: FontStyle.italic,
                         fontSize: 20.0,
                       ),
                 ),
                 Text(
                   '...achieving Heavens Goal',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.w600,
                       ),
@@ -50,7 +51,7 @@ class SplashScreen extends StatelessWidget {
                 Text(
                   softWrap: true,
                   '<b> Chris-Jnr Ekene Nwabudike </b>',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         //fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.w700,
                       ),

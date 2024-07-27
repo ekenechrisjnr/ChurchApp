@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: Center(
         heightFactor: 20.2,
         widthFactor: MediaQuery.of(context).size.width,
@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
             Center(
               child: Text(
                 'FEDERAL UNIVERSITY, DUTSIN-MA',
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       fontStyle: FontStyle.italic,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           'About The Church',
                           style:
-                              Theme.of(context).textTheme.bodyText1!.copyWith(
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     fontStyle: FontStyle.italic,
                                   ),
                         ),
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           'Sermon Outline',
                           style:
-                              Theme.of(context).textTheme.bodyText1!.copyWith(
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     fontStyle: FontStyle.italic,
                                   ),
                         )
@@ -162,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Text(
                         'Give Tithe / Offering',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               fontStyle: FontStyle.italic,
                             ),
                       ),
@@ -185,7 +185,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Text(
                         'Announcements',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               fontStyle: FontStyle.italic,
                             ),
                       ),
@@ -210,7 +210,7 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           'New Comers Form',
                           style:
-                              Theme.of(context).textTheme.bodyText1!.copyWith(
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     fontStyle: FontStyle.italic,
                                   ),
                         ),

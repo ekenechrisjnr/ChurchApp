@@ -32,9 +32,9 @@ class _AboutPageState extends State<AboutPage> {
                 ),
                 Text(
                   'About DLCF FUDMA',
-                  textScaleFactor: 1.2,
+                  textScaler: const TextScaler.linear(1.2),
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 12.5,
                         fontWeight: FontWeight.bold,
                       ),
@@ -45,7 +45,7 @@ class _AboutPageState extends State<AboutPage> {
                 Text(
                   //softWrap: true,
                   textAlign: TextAlign.center,
-                  textScaleFactor: 1.24,
+                  textScaler: const TextScaler.linear(1.24),
                   'Deeper Life Campus Fellowship, Federal University, Dutsin-Ma,'
                   'Was founded on the 2nd of August 2012.'
                   'Deeper Life Campus Fellowship, Federal University, Dutsin-Ma,'
@@ -68,7 +68,7 @@ class _AboutPageState extends State<AboutPage> {
                   'Was founded on the 2nd of August 2012.'
                   'Deeper Life Campus Fellowship, Federal University, Dutsin-Ma,'
                   'Was founded on the 2nd of August 2012.',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 15,
                       ),
                 )

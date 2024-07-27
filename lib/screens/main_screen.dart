@@ -49,6 +49,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
     ];
     return Scaffold(
+      backgroundColor: Colors.white,
       body: screens[i],
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: Theme(
@@ -58,7 +59,7 @@ class _MainScreenState extends State<MainScreen> {
           color: const Color.fromARGB(255, 6, 54, 94),
           animationCurve: Curves.bounceInOut,
           animationDuration: const Duration(milliseconds: 150),
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.white,
           items: items,
           height: 55,
           index: i,

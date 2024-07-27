@@ -27,13 +27,13 @@ class _ArchivePageState extends State<ArchivePage> {
         builder: (BuildContext context, snapshot) {
           // IF INTERNET CONNECTION IS SLOW OR CONTENT IS STILL LOADING...
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return SafeArea(
+            return const SafeArea(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       CircularProgressIndicator(
                         backgroundColor: Colors.blueGrey,
                         color: Color.fromARGB(255, 6, 54, 94),
@@ -48,13 +48,13 @@ class _ArchivePageState extends State<ArchivePage> {
 
           // RETURN THIS IF THE TABLE IN THE DATABASE IS EMPTY WITH NO CONTENT...
           else if (snapshot.hasData == false) {
-            return SafeArea(
+            return const SafeArea(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       Icon(
                         Icons.no_encryption_gmailerrorred_rounded,
                         color: Colors.blueAccent,
@@ -97,7 +97,7 @@ class _ArchivePageState extends State<ArchivePage> {
                         ''' No Internet Connection...
                           Consider Connecting To WiFi or Using Mobile Data
                           ''',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               //fontStyle: FontStyle.italic,
                               fontWeight: FontWeight.w700,
                             ),
