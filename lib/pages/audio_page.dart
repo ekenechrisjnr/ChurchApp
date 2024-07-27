@@ -90,7 +90,7 @@ class _AudioPageState extends State<AudioPage> {
                 ),
                 Text(
                   'The Believers Guide To Living On Earth',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                 ),
@@ -99,7 +99,7 @@ class _AudioPageState extends State<AudioPage> {
                 ),
                 Text(
                   'Pastor Chris Nwabudike',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontStyle: FontStyle.italic,
                       ),
                 ),
@@ -108,7 +108,7 @@ class _AudioPageState extends State<AudioPage> {
                 ),
                 Text(
                   'Sunday Worship Service',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 15,
                       ),
                 ),

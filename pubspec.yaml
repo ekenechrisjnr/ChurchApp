@@ -45,6 +45,11 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
+  audioplayers_web: any
+  shared_preferences_web: any
+  video_player_web: any
+  wakelock_web: any
+  #flutter_web_plugins: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

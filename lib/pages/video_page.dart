@@ -29,13 +29,13 @@ class _VideoPageState extends State<VideoPage> {
         future: fetchStream(),
         builder: (BuildContext context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return SafeArea(
+            return const SafeArea(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       CircularProgressIndicator(
                         backgroundColor: Colors.blueGrey,
                         color: Color.fromARGB(255, 6, 54, 94),
@@ -46,6 +46,10 @@ class _VideoPageState extends State<VideoPage> {
               ),
             );
             //RETURN A CIRCULAR LOADING BAR
+          } else if (snapshot.data == null) {
+            return const Center(
+              child: Text('No Data Retrieved'),
+            );
           }
           return ListView.builder(
             itemCount: snapshot.data?.length,
@@ -72,7 +76,7 @@ class _VideoPageState extends State<VideoPage> {
                             streaming.topic,
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1!
+                                .bodyLarge!
                                 .copyWith(fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(
@@ -81,7 +85,7 @@ class _VideoPageState extends State<VideoPage> {
                           Text(
                             streaming.preacher,
                             style:
-                                Theme.of(context).textTheme.bodyText1!.copyWith(
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
                                       fontStyle: FontStyle.italic,
                                     ),
                           ),
@@ -91,7 +95,7 @@ class _VideoPageState extends State<VideoPage> {
                           Text(
                             streaming.service,
                             style:
-                                Theme.of(context).textTheme.bodyText1!.copyWith(
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
                                       fontSize: 15,
                                     ),
                           ),
@@ -110,7 +114,7 @@ class _VideoPageState extends State<VideoPage> {
 }
 
 late FlickManager flickManager;
-late Streaming streaming;
+late Streaming? streaming;
 
 @override
 void initState() {
@@ -118,7 +122,7 @@ void initState() {
   flickManager = FlickManager(
     autoPlay: true,
     videoPlayerController: VideoPlayerController.network(
-      streaming.url,
+      streaming!.url,
       videoPlayerOptions: VideoPlayerOptions(
         allowBackgroundPlayback: false,
         mixWithOthers: false,
