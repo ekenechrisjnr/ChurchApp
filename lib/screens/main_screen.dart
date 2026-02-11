@@ -31,30 +31,19 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     final items = <Widget>[
-      const Icon(
-        Icons.home,
-        size: 20,
-      ),
-      const Icon(
-        Icons.audio_file,
-        size: 20,
-      ),
-      const Icon(
-        Icons.live_tv,
-        size: 20,
-      ),
-      const Icon(
-        Icons.archive,
-        size: 20,
-      ),
+      const Icon(Icons.home, size: 20),
+      const Icon(Icons.audio_file, size: 20),
+      const Icon(Icons.live_tv, size: 20),
+      const Icon(Icons.archive, size: 20),
     ];
     return Scaffold(
       backgroundColor: Colors.white,
       body: screens[i],
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: Theme(
-        data: Theme.of(context)
-            .copyWith(iconTheme: const IconThemeData(color: Colors.white)),
+        data: Theme.of(
+          context,
+        ).copyWith(iconTheme: const IconThemeData(color: Colors.white)),
         child: CurvedNavigationBar(
           color: const Color.fromARGB(255, 6, 54, 94),
           animationCurve: Curves.bounceInOut,

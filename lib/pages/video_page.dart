@@ -44,11 +44,9 @@ class _VideoPageState extends State<VideoPage> {
               ),
             );
           } else if (snapshot.hasError) {
-             return Center(child: Text('Error: ${snapshot.error}'));
+            return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Center(
-              child: Text('No Data Retrieved'),
-            );
+            return const Center(child: Text('No Data Retrieved'));
           }
 
           return ListView.builder(
@@ -98,38 +96,34 @@ class _StreamItemState extends State<StreamItem> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      minimum: const EdgeInsets.only(
-        top: 20,
-        bottom: 20,
-      ),
+      minimum: const EdgeInsets.only(top: 20, bottom: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           AspectRatio(
-             aspectRatio: 16/9,
-             child: FlickVideoPlayer(flickManager: flickManager),
+            aspectRatio: 16 / 9,
+            child: FlickVideoPlayer(flickManager: flickManager),
           ),
           const SizedBox(height: 25),
           Text(
             widget.streaming.topic,
-            style: Theme.of(context)
-                .textTheme
-                .bodyLarge!
-                .copyWith(fontWeight: FontWeight.bold),
+            style: Theme.of(
+              context,
+            ).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 5),
           Text(
             widget.streaming.preacher,
-            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  fontStyle: FontStyle.italic,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodyLarge!.copyWith(fontStyle: FontStyle.italic),
           ),
           const SizedBox(height: 5),
           Text(
             widget.streaming.service,
-            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  fontSize: 15,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodyLarge!.copyWith(fontSize: 15),
           ),
           const Divider(),
         ],

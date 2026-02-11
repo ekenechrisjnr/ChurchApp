@@ -10,7 +10,7 @@ Future<List<Archive>> fetchArchive() async {
 
 List<Streaming>? _streamCache;
 
-Future <List<Streaming>>fetchStream({uri.Client? client}) async {
+Future<List<Streaming>> fetchStream({uri.Client? client}) async {
   if (_streamCache != null) {
     return _streamCache!;
   }
