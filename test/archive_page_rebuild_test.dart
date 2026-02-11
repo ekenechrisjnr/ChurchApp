@@ -4,7 +4,9 @@ import 'package:dlcf_radio/pages/archive_page.dart';
 import 'package:dlcf_radio/api/archive_json.dart';
 
 void main() {
-  testWidgets('fetchArchive is called on every rebuild', (WidgetTester tester) async {
+  testWidgets('fetchArchive is called on every rebuild', (
+    WidgetTester tester,
+  ) async {
     int callCount = 0;
     Future<List<Archive>> mockFetch() async {
       callCount++;
@@ -19,9 +21,7 @@ void main() {
         home: ValueListenableBuilder<int>(
           valueListenable: rebuildNotifier,
           builder: (context, value, child) {
-            return ArchivePage(
-              fetchArchive: mockFetch,
-            );
+            return ArchivePage(fetchArchive: mockFetch);
           },
         ),
       ),
