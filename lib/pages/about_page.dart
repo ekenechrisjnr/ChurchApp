@@ -31,9 +31,9 @@ class _AboutPageState extends State<AboutPage> {
                   textScaler: const TextScaler.linear(1.2),
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    fontSize: 12.5,
-                    fontWeight: FontWeight.bold,
-                  ),
+                        fontSize: 12.5,
+                        fontWeight: FontWeight.bold,
+                      ),
                 ),
                 const Divider(thickness: 0.9),
                 Text(

@@ -59,10 +59,10 @@ class _HomePageState extends State<HomePage> {
               child: Text(
                 'FEDERAL UNIVERSITY, DUTSIN-MA',
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
               ),
             ),
             const SizedBox(height: 5),
@@ -86,7 +86,9 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           'About The Church',
-                          style: Theme.of(context).textTheme.bodyLarge!
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
                               .copyWith(fontStyle: FontStyle.italic),
                         ),
                       ],
@@ -114,7 +116,9 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           'Sermon Outline',
-                          style: Theme.of(context).textTheme.bodyLarge!
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
                               .copyWith(fontStyle: FontStyle.italic),
                         ),
                       ],
@@ -153,8 +157,8 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         'Give Tithe / Offering',
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          fontStyle: FontStyle.italic,
-                        ),
+                              fontStyle: FontStyle.italic,
+                            ),
                       ),
                     ],
                   ),
@@ -176,8 +180,8 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         'Announcements',
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          fontStyle: FontStyle.italic,
-                        ),
+                              fontStyle: FontStyle.italic,
+                            ),
                       ),
                     ],
                   ),
@@ -199,7 +203,9 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           'New Comers Form',
-                          style: Theme.of(context).textTheme.bodyLarge!
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
                               .copyWith(fontStyle: FontStyle.italic),
                         ),
                       ],

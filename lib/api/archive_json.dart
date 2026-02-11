@@ -26,20 +26,20 @@ class Archive {
   String vidlink;
 
   factory Archive.fromJson(Map<String, dynamic> json) => Archive(
-    id: json["id"],
-    vidtitle: json["vidtitle"],
-    subtitle: json["subtitle"],
-    image: json["image"],
-    datetime: DateTime.parse(json["datetime"]),
-    vidlink: json["vidlink"],
-  );
+        id: json["id"],
+        vidtitle: json["vidtitle"],
+        subtitle: json["subtitle"],
+        image: json["image"],
+        datetime: DateTime.parse(json["datetime"]),
+        vidlink: json["vidlink"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "image": image,
-    "vidtitle": vidtitle,
-    "subtitle": subtitle,
-    "datetime": datetime.toIso8601String(),
-    "vidlink": vidlink,
-  };
+        "id": id,
+        "image": image,
+        "vidtitle": vidtitle,
+        "subtitle": subtitle,
+        "datetime": datetime.toIso8601String(),
+        "vidlink": vidlink,
+      };
 }

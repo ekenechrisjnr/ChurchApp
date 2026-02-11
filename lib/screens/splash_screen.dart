@@ -35,25 +35,25 @@ class SplashScreen extends StatelessWidget {
                 Text(
                   'DLCF FUDMA',
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    fontStyle: FontStyle.italic,
-                    fontSize: 20.0,
-                  ),
+                        fontStyle: FontStyle.italic,
+                        fontSize: 20.0,
+                      ),
                 ),
                 Text(
                   '...achieving Heavens Goal',
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.w600,
-                  ),
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.w600,
+                      ),
                 ),
                 const SizedBox(height: 35),
                 Text(
                   softWrap: true,
                   '<b> Chris-Jnr Ekene Nwabudike </b>',
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    //fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.w700,
-                  ),
+                        //fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.w700,
+                      ),
                 ),
               ],
             ),
