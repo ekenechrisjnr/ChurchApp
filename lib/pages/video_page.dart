@@ -47,9 +47,7 @@ class _VideoPageState extends State<VideoPage> {
             );
             //RETURN A CIRCULAR LOADING BAR
           } else if (snapshot.data == null) {
-            return const Center(
-              child: Text('No Data Retrieved'),
-            );
+            return const Center(child: Text('No Data Retrieved'));
           }
           return ListView.builder(
             itemCount: snapshot.data?.length,
@@ -69,9 +67,7 @@ class _VideoPageState extends State<VideoPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           FlickVideoPlayer(flickManager: flickManager),
-                          const SizedBox(
-                            height: 25,
-                          ),
+                          const SizedBox(height: 25),
                           Text(
                             streaming.topic,
                             style: Theme.of(context)
@@ -79,25 +75,20 @@ class _VideoPageState extends State<VideoPage> {
                                 .bodyLarge!
                                 .copyWith(fontWeight: FontWeight.bold),
                           ),
-                          const SizedBox(
-                            height: 5,
-                          ),
+                          const SizedBox(height: 5),
                           Text(
                             streaming.preacher,
-                            style:
-                                Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                      fontStyle: FontStyle.italic,
-                                    ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyLarge!
+                                .copyWith(fontStyle: FontStyle.italic),
                           ),
-                          const SizedBox(
-                            height: 5,
-                          ),
+                          const SizedBox(height: 5),
                           Text(
                             streaming.service,
-                            style:
-                                Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                      fontSize: 15,
-                                    ),
+                            style: Theme.of(
+                              context,
+                            ).textTheme.bodyLarge!.copyWith(fontSize: 15),
                           ),
                         ],
                       ),
