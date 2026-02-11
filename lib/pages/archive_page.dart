@@ -4,8 +4,9 @@ import 'package:dlcf_radio/api/archive_json.dart';
 
 class ArchivePage extends StatefulWidget {
   static String routeName = 'ArchivePage';
+  final Future<List<Archive>> Function()? fetchArchive;
 
-  const ArchivePage({Key? key}) : super(key: key);
+  const ArchivePage({Key? key, this.fetchArchive}) : super(key: key);
 
   @override
   State<ArchivePage> createState() => _ArchivePageState();
@@ -13,6 +14,14 @@ class ArchivePage extends StatefulWidget {
 
 class _ArchivePageState extends State<ArchivePage> {
   static const String pageName = "Archive";
+  late Future<List<Archive>> _archiveFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _archiveFuture = (widget.fetchArchive ?? fetchArchive)();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +32,7 @@ class _ArchivePageState extends State<ArchivePage> {
       ),
       body: FutureBuilder<List<Archive>>(
         // RETURN FUTURE BUILDER FROM THE FETCH ARCHIVE LIST
-        future: fetchArchive(),
+        future: _archiveFuture,
         builder: (BuildContext context, snapshot) {
           // IF INTERNET CONNECTION IS SLOW OR CONTENT IS STILL LOADING...
           if (snapshot.connectionState == ConnectionState.waiting) {
