@@ -1,7 +1,7 @@
 import 'package:dlcf_radio/front_pages/sermon_outline.dart';
 import 'package:flutter/material.dart';
-//import 'package:google_mobile_ads/google_mobile_ads.dart';
-// import 'package:dlcf_radio/ads.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:dlcf_radio/ads.dart';
 import 'about_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,34 +14,36 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // BannerAd? _bannerAd;
+  BannerAd? _bannerAd;
 
-  //@override
-  // void initState() {
-  //   BannerAd(
-  //     adUnitId: Ads.bannerAdUnitId,
-  //     request: const AdRequest(),
-  //     size: AdSize.banner,
-  //     listener: BannerAdListener(
-  //       onAdLoaded: (ad) {
-  //         setState(() {
-  //           _bannerAd = ad as BannerAd;
-  //         });
-  //       },
-  //       onAdFailedToLoad: (ad, err) {
-  //         debugPrint('Failed to load a banner ad: ${err.message}');
-  //         ad.dispose();
-  //       },
-  //     ),
-  //   ).load();
-  // }
+  @override
+  void initState() {
+    super.initState();
+    _initGoogleMobileAds();
+    BannerAd(
+      adUnitId: Ads.bannerAdUnitId,
+      request: const AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {
+          setState(() {
+            _bannerAd = ad as BannerAd;
+          });
+        },
+        onAdFailedToLoad: (ad, err) {
+          debugPrint('Failed to load a banner ad: ${err.message}');
+          ad.dispose();
+        },
+      ),
+    ).load();
+  }
 
-  //@override
-  // void dispose() {
-  //   // COMPLETE: Dispose a BannerAd object
-  //   _bannerAd?.dispose();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    // COMPLETE: Dispose a BannerAd object
+    _bannerAd?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -137,15 +139,15 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const Divider(),
 
-                // if (_bannerAd != null)
-                //   Align(
-                //     alignment: Alignment.topCenter,
-                //     child: SizedBox(
-                //       width: _bannerAd!.size.width.toDouble(),
-                //       height: _bannerAd!.size.height.toDouble(),
-                //       child: AdWidget(ad: _bannerAd!),
-                //     ),
-                //   ),
+                if (_bannerAd != null)
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: SizedBox(
+                      width: _bannerAd!.size.width.toDouble(),
+                      height: _bannerAd!.size.height.toDouble(),
+                      child: AdWidget(ad: _bannerAd!),
+                    ),
+                  ),
 
                 Card(
                   margin: const EdgeInsets.all(2.95),
@@ -227,7 +229,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-// Future<InitializationStatus> _initGoogleMobileAds() {
-//   // TODO: Initialize Google Mobile Ads SDK
-//   return MobileAds.instance.initialize();
-// }
+Future<InitializationStatus> _initGoogleMobileAds() {
+  // COMPLETE: Initialize Google Mobile Ads SDK
+  return MobileAds.instance.initialize();
+}
