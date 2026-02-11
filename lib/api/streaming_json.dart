@@ -22,18 +22,18 @@ class Streaming {
   String url;
 
   factory Streaming.fromJson(Map<String, dynamic> json) => Streaming(
-    topic: json["topic"],
-    preacher: json["preacher"],
-    service: json["service"],
-    datetime: DateTime.parse(json["datetime"]),
-    url: json["url"],
-  );
+        topic: json["topic"],
+        preacher: json["preacher"],
+        service: json["service"],
+        datetime: DateTime.parse(json["datetime"]),
+        url: json["url"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "topic": topic,
-    "preacher": preacher,
-    "service": service,
-    "datetime": datetime.toIso8601String(),
-    "url": url,
-  };
+        "topic": topic,
+        "preacher": preacher,
+        "service": service,
+        "datetime": datetime.toIso8601String(),
+        "url": url,
+      };
 }

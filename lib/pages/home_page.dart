@@ -53,20 +53,30 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           padding: const EdgeInsets.all(50),
           children: [
-            Image.asset('assets/images/splash.png', width: 60, height: 60),
-            const SizedBox(height: 10),
+            Image.asset(
+              'assets/images/splash.png',
+              width: 60,
+              height: 60,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
             Center(
               child: Text(
                 'FEDERAL UNIVERSITY, DUTSIN-MA',
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
               ),
             ),
-            const SizedBox(height: 5),
-            const Center(child: Text('...achieving Heavens Goal')),
+            const SizedBox(
+              height: 5,
+            ),
+            const Center(
+              child: Text('...achieving Heavens Goal'),
+            ),
             const Divider(),
             Column(
               children: <Widget>[
@@ -86,17 +96,16 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           'About The Church',
-                          style: Theme.of(context).textTheme.bodyLarge!
-                              .copyWith(fontStyle: FontStyle.italic),
+                          style:
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                    fontStyle: FontStyle.italic,
+                                  ),
                         ),
                       ],
                     ),
                   ),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => const AboutPage(),
-                    ),
-                  ),
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => const AboutPage())),
                 ),
                 const Divider(),
                 GestureDetector(
@@ -114,17 +123,17 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           'Sermon Outline',
-                          style: Theme.of(context).textTheme.bodyLarge!
-                              .copyWith(fontStyle: FontStyle.italic),
-                        ),
+                          style:
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                    fontStyle: FontStyle.italic,
+                                  ),
+                        )
                       ],
                     ),
                   ),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => const SermonOutline(),
-                    ),
-                  ),
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) =>
+                          const SermonOutline())),
                 ),
                 const Divider(),
 
@@ -137,6 +146,7 @@ class _HomePageState extends State<HomePage> {
                 //       child: AdWidget(ad: _bannerAd!),
                 //     ),
                 //   ),
+
                 Card(
                   margin: const EdgeInsets.all(2.95),
                   elevation: 5.58,
@@ -153,8 +163,8 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         'Give Tithe / Offering',
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          fontStyle: FontStyle.italic,
-                        ),
+                              fontStyle: FontStyle.italic,
+                            ),
                       ),
                     ],
                   ),
@@ -176,8 +186,8 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         'Announcements',
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          fontStyle: FontStyle.italic,
-                        ),
+                              fontStyle: FontStyle.italic,
+                            ),
                       ),
                     ],
                   ),
@@ -199,8 +209,10 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           'New Comers Form',
-                          style: Theme.of(context).textTheme.bodyLarge!
-                              .copyWith(fontStyle: FontStyle.italic),
+                          style:
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                    fontStyle: FontStyle.italic,
+                                  ),
                         ),
                       ],
                     ),

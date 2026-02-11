@@ -105,9 +105,9 @@ class _ArchivePageState extends State<ArchivePage> {
                           Consider Connecting To WiFi or Using Mobile Data
                           ''',
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          //fontStyle: FontStyle.italic,
-                          fontWeight: FontWeight.w700,
-                        ),
+                              //fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.w700,
+                            ),
                       ),
                     ],
                   ),

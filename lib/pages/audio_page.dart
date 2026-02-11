@@ -85,26 +85,32 @@ class _AudioPageState extends State<AudioPage> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(
+                  height: 30,
+                ),
                 Text(
                   'The Believers Guide To Living On Earth',
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(
+                  height: 10,
+                ),
                 Text(
                   'Pastor Chris Nwabudike',
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodyLarge!.copyWith(fontStyle: FontStyle.italic),
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        fontStyle: FontStyle.italic,
+                      ),
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(
+                  height: 5,
+                ),
                 Text(
                   'Sunday Worship Service',
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodyLarge!.copyWith(fontSize: 15),
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        fontSize: 15,
+                      ),
                 ),
                 Slider(
                   activeColor: Colors.blue,
@@ -123,8 +129,12 @@ class _AudioPageState extends State<AudioPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(formatTime(position)),
-                      Text(formatTime(duration - position)),
+                      Text(
+                        formatTime(position),
+                      ),
+                      Text(
+                        formatTime(duration - position),
+                      ),
                     ],
                   ),
                 ),
