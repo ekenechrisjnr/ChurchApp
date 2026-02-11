@@ -14,7 +14,13 @@ class VideoPage extends StatefulWidget {
 
 class _VideoPageState extends State<VideoPage> {
   static const String pageName = "Video Streaming";
-  //late FlickManager flickManager;
+  Future<List<Streaming>>? _streamFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _streamFuture = fetchStream();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,85 +32,29 @@ class _VideoPageState extends State<VideoPage> {
         iconTheme: const IconThemeData.fallback(),
       ),
       body: FutureBuilder<List<Streaming>>(
-        future: fetchStream(),
+        future: _streamFuture,
         builder: (BuildContext context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const SafeArea(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CircularProgressIndicator(
-                        backgroundColor: Colors.blueGrey,
-                        color: Color.fromARGB(255, 6, 54, 94),
-                      ),
-                    ],
-                  ),
-                ],
+              child: Center(
+                child: CircularProgressIndicator(
+                  backgroundColor: Colors.blueGrey,
+                  color: Color.fromARGB(255, 6, 54, 94),
+                ),
               ),
             );
-            //RETURN A CIRCULAR LOADING BAR
-          } else if (snapshot.data == null) {
+          } else if (snapshot.hasError) {
+             return Center(child: Text('Error: ${snapshot.error}'));
+          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return const Center(
               child: Text('No Data Retrieved'),
             );
           }
+
           return ListView.builder(
-            itemCount: snapshot.data?.length,
+            itemCount: snapshot.data!.length,
             itemBuilder: (context, index) {
-              Streaming streaming = snapshot.data![index];
-              return SafeArea(
-                minimum: const EdgeInsets.only(
-                  top: 100,
-                  right: 0,
-                  left: 0,
-                  bottom: 0,
-                ),
-                child: SizedBox(
-                  child: ListView(
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          FlickVideoPlayer(flickManager: flickManager),
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          Text(
-                            streaming.topic,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyLarge!
-                                .copyWith(fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            streaming.preacher,
-                            style:
-                                Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                      fontStyle: FontStyle.italic,
-                                    ),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            streaming.service,
-                            style:
-                                Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                      fontSize: 15,
-                                    ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              );
+              return StreamItem(streaming: snapshot.data![index]);
             },
           );
         },
@@ -113,26 +63,77 @@ class _VideoPageState extends State<VideoPage> {
   }
 }
 
-late FlickManager flickManager;
-late Streaming? streaming;
+class StreamItem extends StatefulWidget {
+  final Streaming streaming;
+  const StreamItem({required this.streaming, Key? key}) : super(key: key);
 
-@override
-void initState() {
-  //super.initState();
-  flickManager = FlickManager(
-    autoPlay: true,
-    videoPlayerController: VideoPlayerController.network(
-      streaming!.url,
-      videoPlayerOptions: VideoPlayerOptions(
-        allowBackgroundPlayback: false,
-        mixWithOthers: false,
-      ),
-    ),
-  );
+  @override
+  State<StreamItem> createState() => _StreamItemState();
 }
 
-@override
-void dispose() {
-  flickManager.dispose();
-  //super.dispose();
+class _StreamItemState extends State<StreamItem> {
+  late FlickManager flickManager;
+
+  @override
+  void initState() {
+    super.initState();
+    flickManager = FlickManager(
+      autoPlay: false,
+      videoPlayerController: VideoPlayerController.network(
+        widget.streaming.url,
+        videoPlayerOptions: VideoPlayerOptions(
+          allowBackgroundPlayback: false,
+          mixWithOthers: false,
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    flickManager.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      minimum: const EdgeInsets.only(
+        top: 20,
+        bottom: 20,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          AspectRatio(
+             aspectRatio: 16/9,
+             child: FlickVideoPlayer(flickManager: flickManager),
+          ),
+          const SizedBox(height: 25),
+          Text(
+            widget.streaming.topic,
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge!
+                .copyWith(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 5),
+          Text(
+            widget.streaming.preacher,
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  fontStyle: FontStyle.italic,
+                ),
+          ),
+          const SizedBox(height: 5),
+          Text(
+            widget.streaming.service,
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  fontSize: 15,
+                ),
+          ),
+          const Divider(),
+        ],
+      ),
+    );
+  }
 }
