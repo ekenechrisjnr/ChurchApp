@@ -4,8 +4,9 @@ import 'package:dlcf_radio/api/archive_json.dart';
 
 class ArchivePage extends StatefulWidget {
   static String routeName = 'ArchivePage';
+  final Future<List<Archive>> Function()? fetchArchive;
 
-  const ArchivePage({Key? key}) : super(key: key);
+  const ArchivePage({Key? key, this.fetchArchive}) : super(key: key);
 
   @override
   State<ArchivePage> createState() => _ArchivePageState();
@@ -13,6 +14,14 @@ class ArchivePage extends StatefulWidget {
 
 class _ArchivePageState extends State<ArchivePage> {
   static const String pageName = "Archive";
+  late Future<List<Archive>> _archiveFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _archiveFuture = (widget.fetchArchive ?? fetchArchive)();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +32,7 @@ class _ArchivePageState extends State<ArchivePage> {
       ),
       body: FutureBuilder<List<Archive>>(
         // RETURN FUTURE BUILDER FROM THE FETCH ARCHIVE LIST
-        future: fetchArchive(),
+        future: _archiveFuture,
         builder: (BuildContext context, snapshot) {
           // IF INTERNET CONNECTION IS SLOW OR CONTENT IS STILL LOADING...
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -45,7 +54,6 @@ class _ArchivePageState extends State<ArchivePage> {
             );
             //RETURN A CIRCULAR LOADING BAR
           }
-
           // RETURN THIS IF THE TABLE IN THE DATABASE IS EMPTY WITH NO CONTENT...
           else if (snapshot.hasData == false) {
             return const SafeArea(
@@ -63,7 +71,9 @@ class _ArchivePageState extends State<ArchivePage> {
                       Text(
                         "No Content On Database",
                         style: TextStyle(
-                            fontSize: 18.65, fontStyle: FontStyle.italic),
+                          fontSize: 18.65,
+                          fontStyle: FontStyle.italic,
+                        ),
                       ),
                     ],
                   ),
@@ -71,7 +81,6 @@ class _ArchivePageState extends State<ArchivePage> {
               ),
             );
           }
-
           // END OF RETURN THIS IF THE TABLE IN THE DATABASE IS EMPTY WITH NO CONTENT...
           else if (snapshot.connectionState == ConnectionState.none) {
             return Center(
@@ -89,9 +98,7 @@ class _ArchivePageState extends State<ArchivePage> {
                         color: Colors.blueAccent,
                         semanticLabel: "No Internet Connection",
                       ),
-                      const SizedBox(
-                        height: 5,
-                      ),
+                      const SizedBox(height: 5),
                       Text(
                         softWrap: true,
                         ''' No Internet Connection...
@@ -101,7 +108,7 @@ class _ArchivePageState extends State<ArchivePage> {
                               //fontStyle: FontStyle.italic,
                               fontWeight: FontWeight.w700,
                             ),
-                      )
+                      ),
                     ],
                   ),
                 ],
@@ -133,25 +140,19 @@ class _ArchivePageState extends State<ArchivePage> {
                           archive.vidtitle,
                           softWrap: true,
                           style: const TextStyle(
-                              color: Colors.blueAccent,
-                              inherit: true,
-                              fontWeight: FontWeight.bold),
+                            color: Colors.blueAccent,
+                            inherit: true,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        const SizedBox(
-                          height: 1,
-                        ),
+                        const SizedBox(height: 1),
                         Text(
                           //textAlign: TextAlign.center,
                           archive.subtitle,
                           //style: const TextStyle(fontStyle: FontStyle.italic),
                         ),
-                        const SizedBox(
-                          height: 2,
-                        ),
-                        const Text(
-                          'Click Me!',
-                          textAlign: TextAlign.center,
-                        ),
+                        const SizedBox(height: 2),
+                        const Text('Click Me!', textAlign: TextAlign.center),
                       ],
                     ),
                   ],
