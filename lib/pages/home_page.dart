@@ -1,7 +1,7 @@
 import 'package:dlcf_radio/front_pages/sermon_outline.dart';
 import 'package:flutter/material.dart';
-//import 'package:google_mobile_ads/google_mobile_ads.dart';
-// import 'package:dlcf_radio/ads.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:dlcf_radio/ads.dart';
 import 'about_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,34 +14,36 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // BannerAd? _bannerAd;
+  BannerAd? _bannerAd;
 
-  //@override
-  // void initState() {
-  //   BannerAd(
-  //     adUnitId: Ads.bannerAdUnitId,
-  //     request: const AdRequest(),
-  //     size: AdSize.banner,
-  //     listener: BannerAdListener(
-  //       onAdLoaded: (ad) {
-  //         setState(() {
-  //           _bannerAd = ad as BannerAd;
-  //         });
-  //       },
-  //       onAdFailedToLoad: (ad, err) {
-  //         debugPrint('Failed to load a banner ad: ${err.message}');
-  //         ad.dispose();
-  //       },
-  //     ),
-  //   ).load();
-  // }
+  @override
+  void initState() {
+    super.initState();
+    _initGoogleMobileAds();
+    BannerAd(
+      adUnitId: Ads.bannerAdUnitId,
+      request: const AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {
+          setState(() {
+            _bannerAd = ad as BannerAd;
+          });
+        },
+        onAdFailedToLoad: (ad, err) {
+          debugPrint('Failed to load a banner ad: ${err.message}');
+          ad.dispose();
+        },
+      ),
+    ).load();
+  }
 
-  //@override
-  // void dispose() {
-  //   // COMPLETE: Dispose a BannerAd object
-  //   _bannerAd?.dispose();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    // COMPLETE: Dispose a BannerAd object
+    _bannerAd?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,14 +55,8 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           padding: const EdgeInsets.all(50),
           children: [
-            Image.asset(
-              'assets/images/splash.png',
-              width: 60,
-              height: 60,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
+            Image.asset('assets/images/splash.png', width: 60, height: 60),
+            const SizedBox(height: 10),
             Center(
               child: Text(
                 'FEDERAL UNIVERSITY, DUTSIN-MA',
@@ -71,12 +67,8 @@ class _HomePageState extends State<HomePage> {
                     ),
               ),
             ),
-            const SizedBox(
-              height: 5,
-            ),
-            const Center(
-              child: Text('...achieving Heavens Goal'),
-            ),
+            const SizedBox(height: 5),
+            const Center(child: Text('...achieving Heavens Goal')),
             const Divider(),
             Column(
               children: <Widget>[
@@ -96,16 +88,19 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           'About The Church',
-                          style:
-                              Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                    fontStyle: FontStyle.italic,
-                                  ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(fontStyle: FontStyle.italic),
                         ),
                       ],
                     ),
                   ),
-                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => const AboutPage())),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const AboutPage(),
+                    ),
+                  ),
                 ),
                 const Divider(),
                 GestureDetector(
@@ -123,30 +118,30 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           'Sermon Outline',
-                          style:
-                              Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                    fontStyle: FontStyle.italic,
-                                  ),
-                        )
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(fontStyle: FontStyle.italic),
+                        ),
                       ],
                     ),
                   ),
-                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          const SermonOutline())),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const SermonOutline(),
+                    ),
+                  ),
                 ),
                 const Divider(),
-
-                // if (_bannerAd != null)
-                //   Align(
-                //     alignment: Alignment.topCenter,
-                //     child: SizedBox(
-                //       width: _bannerAd!.size.width.toDouble(),
-                //       height: _bannerAd!.size.height.toDouble(),
-                //       child: AdWidget(ad: _bannerAd!),
-                //     ),
-                //   ),
-
+                if (_bannerAd != null)
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: SizedBox(
+                      width: _bannerAd!.size.width.toDouble(),
+                      height: _bannerAd!.size.height.toDouble(),
+                      child: AdWidget(ad: _bannerAd!),
+                    ),
+                  ),
                 Card(
                   margin: const EdgeInsets.all(2.95),
                   elevation: 5.58,
@@ -209,10 +204,10 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           'New Comers Form',
-                          style:
-                              Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                    fontStyle: FontStyle.italic,
-                                  ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(fontStyle: FontStyle.italic),
                         ),
                       ],
                     ),
@@ -227,7 +222,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-// Future<InitializationStatus> _initGoogleMobileAds() {
-//   // TODO: Initialize Google Mobile Ads SDK
-//   return MobileAds.instance.initialize();
-// }
+Future<InitializationStatus> _initGoogleMobileAds() {
+  // COMPLETE: Initialize Google Mobile Ads SDK
+  return MobileAds.instance.initialize();
+}

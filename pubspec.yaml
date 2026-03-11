@@ -35,7 +35,7 @@ dependencies:
   flick_video_player: ^0.5.0
   curved_navigation_bar: ^1.0.3
   visibility_detector: ^0.3.3
-#  google_mobile_ads:
+  google_mobile_ads: ^2.3.0
   provider:
   flutter:
     sdk: flutter

@@ -45,7 +45,6 @@ class _ArchivePageState extends State<ArchivePage> {
             );
             //RETURN A CIRCULAR LOADING BAR
           }
-
           // RETURN THIS IF THE TABLE IN THE DATABASE IS EMPTY WITH NO CONTENT...
           else if (snapshot.hasData == false) {
             return const SafeArea(
@@ -63,7 +62,9 @@ class _ArchivePageState extends State<ArchivePage> {
                       Text(
                         "No Content On Database",
                         style: TextStyle(
-                            fontSize: 18.65, fontStyle: FontStyle.italic),
+                          fontSize: 18.65,
+                          fontStyle: FontStyle.italic,
+                        ),
                       ),
                     ],
                   ),
@@ -71,7 +72,6 @@ class _ArchivePageState extends State<ArchivePage> {
               ),
             );
           }
-
           // END OF RETURN THIS IF THE TABLE IN THE DATABASE IS EMPTY WITH NO CONTENT...
           else if (snapshot.connectionState == ConnectionState.none) {
             return Center(
@@ -89,9 +89,7 @@ class _ArchivePageState extends State<ArchivePage> {
                         color: Colors.blueAccent,
                         semanticLabel: "No Internet Connection",
                       ),
-                      const SizedBox(
-                        height: 5,
-                      ),
+                      const SizedBox(height: 5),
                       Text(
                         softWrap: true,
                         ''' No Internet Connection...
@@ -101,7 +99,7 @@ class _ArchivePageState extends State<ArchivePage> {
                               //fontStyle: FontStyle.italic,
                               fontWeight: FontWeight.w700,
                             ),
-                      )
+                      ),
                     ],
                   ),
                 ],
@@ -133,25 +131,19 @@ class _ArchivePageState extends State<ArchivePage> {
                           archive.vidtitle,
                           softWrap: true,
                           style: const TextStyle(
-                              color: Colors.blueAccent,
-                              inherit: true,
-                              fontWeight: FontWeight.bold),
+                            color: Colors.blueAccent,
+                            inherit: true,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        const SizedBox(
-                          height: 1,
-                        ),
+                        const SizedBox(height: 1),
                         Text(
                           //textAlign: TextAlign.center,
                           archive.subtitle,
                           //style: const TextStyle(fontStyle: FontStyle.italic),
                         ),
-                        const SizedBox(
-                          height: 2,
-                        ),
-                        const Text(
-                          'Click Me!',
-                          textAlign: TextAlign.center,
-                        ),
+                        const SizedBox(height: 2),
+                        const Text('Click Me!', textAlign: TextAlign.center),
                       ],
                     ),
                   ],
