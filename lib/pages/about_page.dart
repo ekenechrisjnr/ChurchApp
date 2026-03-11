@@ -25,11 +25,7 @@ class _AboutPageState extends State<AboutPage> {
           children: [
             Column(
               children: [
-                Image.asset(
-                  'assets/images/splash.png',
-                  height: 80,
-                  width: 70,
-                ),
+                Image.asset('assets/images/splash.png', height: 80, width: 70),
                 Text(
                   'About DLCF FUDMA',
                   textScaler: const TextScaler.linear(1.2),
@@ -39,9 +35,7 @@ class _AboutPageState extends State<AboutPage> {
                         fontWeight: FontWeight.bold,
                       ),
                 ),
-                const Divider(
-                  thickness: 0.9,
-                ),
+                const Divider(thickness: 0.9),
                 Text(
                   //softWrap: true,
                   textAlign: TextAlign.center,
@@ -68,12 +62,12 @@ class _AboutPageState extends State<AboutPage> {
                   'Was founded on the 2nd of August 2012.'
                   'Deeper Life Campus Fellowship, Federal University, Dutsin-Ma,'
                   'Was founded on the 2nd of August 2012.',
-                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        fontSize: 15,
-                      ),
-                )
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge!.copyWith(fontSize: 15),
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),

@@ -8,8 +8,26 @@ Future<List<Archive>> fetchArchive() async {
   return archiveFromJson(result.body);
 }
 
-Future <List<Streaming>>fetchStream() async {
+List<Streaming>? _streamCache;
+
+Future<List<Streaming>> fetchStream({uri.Client? client}) async {
+  if (_streamCache != null) {
+    return _streamCache!;
+  }
+
   String url = "https://combinatorial-pumps.000webhost.com/app_config.php";
-  final result = await uri.get(Uri.parse(url));
-  return streamingFromJson(result.body);
+  final httpClient = client ?? uri.Client();
+  try {
+    final result = await httpClient.get(Uri.parse(url));
+    if (result.statusCode == 200) {
+      _streamCache = streamingFromJson(result.body);
+      return _streamCache!;
+    } else {
+      throw Exception('Failed to load stream');
+    }
+  } finally {
+    if (client == null) {
+      httpClient.close();
+    }
+  }
 }

@@ -17,11 +17,7 @@ class _SermonOutlineState extends State<SermonOutline> {
         backgroundColor: const Color.fromARGB(255, 6, 54, 94),
         title: const Text('Outline'),
       ),
-      body: const Center(
-        child: SizedBox(
-          child: Text('Sermon Outline Page'),
-        ),
-      ),
+      body: const Center(child: SizedBox(child: Text('Sermon Outline Page'))),
     );
   }
 }
