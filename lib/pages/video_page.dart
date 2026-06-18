@@ -81,20 +81,18 @@ class _VideoPageState extends State<VideoPage> {
                     ),
                     Text(
                       streaming.preacher,
-                      style:
-                          Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                fontStyle: FontStyle.italic,
-                              ),
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            fontStyle: FontStyle.italic,
+                          ),
                     ),
                     const SizedBox(
                       height: 5,
                     ),
                     Text(
                       streaming.service,
-                      style:
-                          Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                fontSize: 15,
-                              ),
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            fontSize: 15,
+                          ),
                     ),
                   ],
                 ),
