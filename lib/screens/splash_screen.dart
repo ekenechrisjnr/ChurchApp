@@ -1,16 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:dlcf_radio/screens/main_screen.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   static String routeName = 'SplashScreen';
 
   const SplashScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 8), () {
+      if (mounted) {
+        Navigator.pushNamedAndRemoveUntil(
+            context, MainScreen.routeName, (route) => false);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 8), () {
-      Navigator.pushNamedAndRemoveUntil(
-          context, MainScreen.routeName, (route) => false);
-    });
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
