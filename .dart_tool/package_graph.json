@@ -559,6 +559,17 @@
       ]
     },
     {
+      "name": "leak_tracker",
+      "version": "11.0.2",
+      "dependencies": [
+        "clock",
+        "collection",
+        "meta",
+        "path",
+        "vm_service"
+      ]
+    },
+    {
       "name": "term_glyph",
       "version": "1.2.1",
       "dependencies": []
@@ -705,6 +716,11 @@
       ]
     },
     {
+      "name": "vm_service",
+      "version": "14.2.1",
+      "dependencies": []
+    },
+    {
       "name": "win32",
       "version": "2.7.0",
       "dependencies": [
@@ -738,22 +754,6 @@
         "path",
         "platform"
       ]
-    },
-    {
-      "name": "leak_tracker",
-      "version": "11.0.2",
-      "dependencies": [
-        "clock",
-        "collection",
-        "meta",
-        "path",
-        "vm_service"
-      ]
-    },
-    {
-      "name": "vm_service",
-      "version": "14.2.1",
-      "dependencies": []
     }
   ],
   "configVersion": 1
