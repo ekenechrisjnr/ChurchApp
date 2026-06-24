@@ -62,47 +62,39 @@ class _VideoPageState extends State<VideoPage> {
                   left: 0,
                   bottom: 0,
                 ),
-                child: SizedBox(
-                  child: ListView(
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          FlickVideoPlayer(flickManager: flickManager),
-                          const SizedBox(
-                            height: 25,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FlickVideoPlayer(flickManager: flickManager),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    Text(
+                      streaming.topic,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyLarge!
+                          .copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      streaming.preacher,
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            fontStyle: FontStyle.italic,
                           ),
-                          Text(
-                            streaming.topic,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyLarge!
-                                .copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      streaming.service,
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            fontSize: 15,
                           ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            streaming.preacher,
-                            style:
-                                Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                      fontStyle: FontStyle.italic,
-                                    ),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            streaming.service,
-                            style:
-                                Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                      fontSize: 15,
-                                    ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               );
             },
